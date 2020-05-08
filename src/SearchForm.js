@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import Filters from './Filters';
 import './SearchForm.css';
 
 class SearchForm extends Component {
     render() {
         return (
             <div className='searchForm'>
-                <form>
+                <form onSubmit={this.props.onSubmit}>
                     <label htmlFor='search'>Search:</label>
                     <input
                     type='text'
@@ -17,6 +18,7 @@ class SearchForm extends Component {
                     />
                     <button type='submit'>Search</button>
                 </form>
+                <Filters />
             </div>
         );
     }

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Header from './Header'
 import SearchForm from './SearchForm';
-import Filters from './Filters';
 import ResultList from './ResultList'
 
 class App extends Component {
@@ -36,6 +35,7 @@ class App extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
+    console.log('handle submit is working');
 
     const url = 'https://www.googleapis.com/books/v1/volumes?q=';
     const options = {
@@ -55,6 +55,7 @@ class App extends Component {
     }
 
     const fetchURL = url + params;
+    console.log(fetchURL);
 
     fetch(fetchURL, options)
     .then(response => {
@@ -88,7 +89,6 @@ class App extends Component {
           filterPrint = {this.handlePrintType}
           filterBooks = {this.handleBookFilter}
         />
-        <Filters />
         <ResultList 
           books = {this.state.apiBooks}
         />
